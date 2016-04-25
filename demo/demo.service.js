@@ -75,7 +75,7 @@
         var resultSetQry = prefixes + resultSet;
 
         var query = prefixes +
-            ' SELECT ?id ?name ?name_ver ?characteristic ?rarity ?conservation ?upper ' +
+            ' SELECT ?id ?name ?name_ver ?characteristic ?rarity ?conservation ?upper ?genus ?family' +
             ' WHERE {' +
                 '   { ' +
                     '     <RESULTSET> ' +
@@ -93,6 +93,14 @@
                                     '         FILTER(lang(?name_ver) = "fi") . }' +
                                     ' OPTIONAL { ?id bc:hasCharacteristic ?chara . }' +
                                     ' OPTIONAL { ?id taxmeon:isPartOfHigherTaxon ?upper . }' +
+                                    ' OPTIONAL { ?id taxmeon:isPartOfHigherTaxon+ ?genus_uri . ' +
+                                    '            ?genus_uri a ranks:Genus . ' +
+                                    '            ?genus_uri rdfs:label ?genus . ' +
+                                    '            FILTER(lang(?genus) = "") } ' +
+                                    ' OPTIONAL { ?id taxmeon:isPartOfHigherTaxon+ ?family_uri . ' +
+                                    '            ?family_uri a ranks:Family . ' +
+                                    '            ?family_uri rdfs:label ?family . ' +
+                                    '            FILTER(lang(?family) = "") } ' +
                                     ' }' +
                                     ' }';
 
