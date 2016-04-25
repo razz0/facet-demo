@@ -1,9 +1,9 @@
-# casualties-demo
-Death records perspective of the WarSampo portal: http://www.sotasampo.fi/en/casualties/
+# facet-demo
+SPARQL Faceter demo application.
 
 Installation
 ------------
 
-cd casualties
+cd demo
 
 bower install
