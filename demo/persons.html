@@ -1,0 +1,20 @@
+<div>
+    <h1>Halias fasettidemo</h1>
+    <p>Valitse jotain.</p>
+
+</div>
+
+<table class="table casualty-table ng-table-reponsive" ng-table="vm.tableParams">
+  <tr ng-show="!vm.isLoadingResults" ng-repeat="bird in $data">
+    <td data-title="'Tieteellinen nimi'">
+    {{::bird.name}}
+    </td>
+    <td data-title="'Suomenkielinen nimi'">
+      {{::bird.name_ver}}
+    </td>
+    <td data-title="'Harvinaisuus'">
+      {{::bird.rarity}}
+    </td>
+  </tr>
+</table>
+<img class="loading-img" src="images/loading-lg.gif" ng-if="vm.isLoadingResults"></img>
